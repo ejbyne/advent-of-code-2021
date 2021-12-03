@@ -76,5 +76,14 @@ forward 2`;
       expect(result).toEqual({ aim: 10, horizontal: 15, vertical: 60 });
       expect(result.horizontal * result.vertical).toBe(900);
     });
+
+    it("aggregates the puzzle input", async () => {
+      const input = await readFile("src/day2.input.txt", "utf-8");
+
+      const result = getCoordinatesV2(input);
+
+      expect(result).toEqual({ aim: 717, horizontal: 2024, vertical: 800465 });
+      expect(result.horizontal * result.vertical).toBe(1620141160);
+    });
   });
 });
