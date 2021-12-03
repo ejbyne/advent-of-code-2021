@@ -31,7 +31,7 @@ function parseMovements(input: string) {
   return movements;
 }
 
-export function getCoordinatesV2(input: string) {
+export function getCoordinatesWithAim(input: string) {
   const movements = parseMovements(input);
 
   return movements.reduce(

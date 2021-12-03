@@ -1,8 +1,8 @@
-import { getCoordinates, getCoordinatesV2 } from "./day2";
+import { getCoordinates, getCoordinatesWithAim } from "./day2";
 import { readFile } from "fs/promises";
 
-describe("getCoordinates", () => {
-  describe("v1", () => {
+describe("Day 2", () => {
+  describe("Part 1", () => {
     it("aggregates down movements", () => {
       const input = `
 forward 5
@@ -61,7 +61,7 @@ forward 2`;
     });
   });
 
-  describe("v2", () => {
+  describe("Part 2", () => {
     it("aggregates a mixture of directions", () => {
       const input = `
 forward 5
@@ -71,7 +71,7 @@ up 3
 down 8
 forward 2`;
 
-      const result = getCoordinatesV2(input);
+      const result = getCoordinatesWithAim(input);
 
       expect(result).toEqual({ aim: 10, horizontal: 15, vertical: 60 });
       expect(result.horizontal * result.vertical).toBe(900);
@@ -80,7 +80,7 @@ forward 2`;
     it("aggregates the puzzle input", async () => {
       const input = await readFile("src/day2.input.txt", "utf-8");
 
-      const result = getCoordinatesV2(input);
+      const result = getCoordinatesWithAim(input);
 
       expect(result).toEqual({ aim: 717, horizontal: 2024, vertical: 800465 });
       expect(result.horizontal * result.vertical).toBe(1620141160);
